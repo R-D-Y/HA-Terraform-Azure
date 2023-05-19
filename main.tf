@@ -34,7 +34,7 @@ resource "azurerm_subnet" "example" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-# Création de l'ensemble de disponibilité
+# Création de l'avaibility set
 resource "azurerm_availability_set" "example" {
   name                = "Myavailability-set" 
   location            = azurerm_resource_group.example.location
@@ -77,7 +77,7 @@ resource "azurerm_virtual_machine" "example" {
 }
 
 
-# Extension de script personnalisé pour la première machine virtuelle
+# Extension de script personnalisé pour la vm1
 resource "azurerm_virtual_machine_extension" "example1" {
   name                 = "customscript1"
   virtual_machine_id   = azurerm_virtual_machine.example[0].id
@@ -92,7 +92,7 @@ resource "azurerm_virtual_machine_extension" "example1" {
 SETTINGS
 }
 
-# Extension de script personnalisé pour la deuxième machine virtuelle
+# Extension de script personnalisé pour la vm2
 resource "azurerm_virtual_machine_extension" "example2" {
   name                 = "customscript2"
   virtual_machine_id   = azurerm_virtual_machine.example[1].id
